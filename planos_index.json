@@ -1,0 +1,637 @@
+{
+  "version": "2025-10-06 17:37:37 -0300",
+  "canonical_rules": {
+    "prefer_latest": true,
+    "prefer_canonical_flag": true
+  },
+  "collections": [
+    {
+      "id": "games",
+      "title": "Games",
+      "docs": [
+        {
+          "path": "Planejamentos/Planos de Aula/Games/Gabriel - Games e Robótica - Formação Complementar - Objetivos Avaliação - 1º Semestre - 2025.docx",
+          "type": "objetivos_avaliacao",
+          "area": "Games",
+          "semester": "S1",
+          "year": "2025",
+          "grades": [
+            "6º-EM"
+          ],
+          "canonical": true
+        },
+        {
+          "path": "Planejamentos/Planos de Aula/Games/Gabriel - Games e Robótica - Formação Complementar - Plano de Aula - 1º Semestre - 2025.docx",
+          "type": "plano_aula",
+          "area": "Games",
+          "semester": "S1",
+          "year": "2025",
+          "grades": [
+            "6º-EM"
+          ],
+          "canonical": true
+        },
+        {
+          "path": "Planejamentos/Planos de Aula/Games/Gabriel - Games e Robótica - Formação Complementar - Plano de Aula - 2º Semestre - 2025.docx",
+          "type": "plano_aula",
+          "area": "Games",
+          "semester": "S2",
+          "year": "2025",
+          "grades": [
+            "6º-EM"
+          ],
+          "canonical": true
+        }
+      ]
+    },
+    {
+      "id": "geral",
+      "title": "Geral",
+      "docs": [
+        {
+          "path": "Planejamentos/Planos de Aula/Plano de Aula - Modelo.docx",
+          "type": "plano_aula",
+          "area": "Geral",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [],
+          "canonical": false
+        }
+      ]
+    },
+    {
+      "id": "robotica",
+      "title": "Robótica",
+      "docs": [
+        {
+          "path": "Plano de estudos - Robótica/2° e 3° ano/Sandro - Plano de Aula - 1° Semestre - Formação Complementar - 2025.docx",
+          "type": "plano_aula",
+          "area": "Robótica",
+          "semester": "S1",
+          "year": "2025",
+          "grades": [
+            "3º ano"
+          ],
+          "canonical": true
+        },
+        {
+          "path": "Plano de estudos - Robótica/2° e 3° ano/Sandro - Plano de Aula - 1º Semestre - Formação Complementar 3° ano - 4N Robótica - 2024.docx",
+          "type": "plano_aula",
+          "area": "Robótica",
+          "semester": "S1",
+          "year": "2024",
+          "grades": [
+            "3º ano",
+            "4N"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/2º ano/Sandro - Plano de Aula - 1° Semestre - Formação Complementar - 1° ano - 2T Robótica - 2024.docx",
+          "type": "plano_aula",
+          "area": "Robótica",
+          "semester": "S2",
+          "year": "2024",
+          "grades": [
+            "1º ano",
+            "2T",
+            "2º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/2º ano/Sandro - Plano de Aula - 2° Semestre - Formação Complementar - 1° ano - 2T Robótica - 2024.docx",
+          "type": "plano_aula",
+          "area": "Robótica",
+          "semester": "S2",
+          "year": "2024",
+          "grades": [
+            "1º ano",
+            "2T",
+            "2º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/3° ano/Sandro - Plano de Aula - 1º Semestre - Formação Complementar - 5° ano - 6N Robótica - 2024.docx",
+          "type": "plano_aula",
+          "area": "Robótica",
+          "semester": "S1",
+          "year": "2024",
+          "grades": [
+            "3º ano",
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/3° ano/Sandro - Plano de Aula - 2º Semestre - Formação Complementar 3° ano - 4N Robótica - 2024.docx",
+          "type": "plano_aula",
+          "area": "Robótica",
+          "semester": "S2",
+          "year": "2024",
+          "grades": [
+            "3º ano",
+            "4N"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/4°no/Sandro - Plano de Aula - 2° Semestre - Formação Complementar - 2025.docx",
+          "type": "plano_aula",
+          "area": "Robótica",
+          "semester": "S2",
+          "year": "2025",
+          "grades": [],
+          "canonical": true
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula01_introducao_robotica_primeiros_passos_modulo1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula02_cultura_maker_primeiros_passos_modulo1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula03_movimento_mecanico1_robotica_primeiros_passos_m1_versao3.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula04_movimento_mecanico2_robotica_primeiros_passos_versao3.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula05_robotica_primeiros_passos_m1_automatos1_versao4.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula06_robotica_primeiros_passos_m1_automatos2_parte1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula07_robotica_primeiros_passos_m1_automatos2_parte2.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula08_robotica_primeiros_passos_m1_circuito_eletrico1_versao2 (1).pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula08_robotica_primeiros_passos_m1_circuito_eletrico1_versao2.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula09_robotica_primeiros_passos_m1_circuito_eletrico2_versao2.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula10_robotica_primeiros_passos_m1_circuito_eletrico3_versao2.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula11_robotica_primeiros_passos_m1_circuito_eletrico4_versao2.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula12_robotica_primeiros_passos_m1_movimento_propulsao_jato_0.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula13_robotica_primeiros_passos_m1_testagem_prototipos1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula15_feedback_primeira_etapa_robotica_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula16_conhecendo_kit_robotica_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula17_robotica_tinkercad_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula18_simulando_circuito1_robotica_primeiros_passos_m1_versao2.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula19_simulando_circuito2_robotica_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula20_simulando_circuito3_robotica_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula21_pensamento_logico_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula22_programacao_despuglada_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula23_software_mblock_robotica_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula24_criando_animacao_mblock_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula25_um_resistor_para_cada_led_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula26_elaborando_projetos_tinkerdad_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula27_apresentacao_circuitos_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula28_feedback_segunda_etapa_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula29_pare_avance_semaforo_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula30_show_luzes_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula31_simulando_funcionamento_servomotores_primeros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula32_programe_acenar_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula33_mascote_se_mexe1_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula34_mascote_se_mexe2_primeiros_passos_m2.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula35_mascote_tambem_acena_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula36_o_buzzer_toca_musica_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula37_mascote_se_comunica_ef2_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula38_interacao_entre_mascotes_ef2_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula39_discotecagem_ef2_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula40_testagem_prototipos2_ef2_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula41_segunda_disputa_prototipos_ef2_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        },
+        {
+          "path": "Plano de estudos - Robótica/5° ano/aula42_feedbackIII_primeiros_passos_m1.pdf",
+          "type": "plano_estudos",
+          "area": "Robótica",
+          "semester": "S1+S2",
+          "year": null,
+          "grades": [
+            "5º ano"
+          ],
+          "canonical": false
+        }
+      ]
+    },
+    {
+      "id": "treinamento",
+      "title": "Treinamento",
+      "docs": [
+        {
+          "path": "Planejamentos/Planos de Aula/Treinamento/Gabriel e Sandro - Treinamento - Formação Complementar - Plano de Aula - 1º Semestre - 2025.docx",
+          "type": "plano_aula",
+          "area": "Treinamento",
+          "semester": "S1",
+          "year": "2025",
+          "grades": [],
+          "canonical": true
+        },
+        {
+          "path": "Planejamentos/Planos de Aula/Treinamento/Sandro e Gabriel - Treinamento - Formação Complementar - Plano de Aula - 2º Semestre - 2025.docx",
+          "type": "plano_aula",
+          "area": "Treinamento",
+          "semester": "S2",
+          "year": "2025",
+          "grades": [],
+          "canonical": true
+        }
+      ]
+    }
+  ]
+}
