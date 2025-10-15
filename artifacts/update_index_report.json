@@ -1,0 +1,24 @@
+{
+  "summary": {
+    "total_docs": 55,
+    "paths_present": 47,
+    "paths_missing_before": 8,
+    "paths_auto_remapped": 0,
+    "paths_missing_after": 8,
+    "canonical_conflicts": 0,
+    "canonical_auto_demoted": 0
+  },
+  "changed_paths": [],
+  "still_missing": [
+    "Objetivos de Avaliação/Gabriel - Games e Robótica - Formação Complementar - Objetivos Avaliação - 1o Semestre - 2025.docx",
+    "Planos de Aula/Games/Gabriel - Games e Robótica - Formação Complementar - Plano de Aula - 1o Semestre - 2025.docx",
+    "Planos de Aula/Games/Gabriel - Games e Robótica - Formação Complementar - Plano de Aula - 2o Semestre - 2025.docx",
+    "Planos de Estudos/Apoio/Robótica/2° e 3° ano/Sandro - Plano de Aula - 1o Semestre - Formação Complementar 3° ano - 4N Robótica - 2024.docx",
+    "Planos de Estudos/Apoio/Robótica/3° ano/Sandro - Plano de Aula - 1o Semestre - Formação Complementar - 5° ano - 6N Robótica - 2024.docx",
+    "Planos de Estudos/Apoio/Robótica/3° ano/Sandro - Plano de Aula - 2o Semestre - Formação Complementar 3° ano - 4N Robótica - 2024.docx",
+    "Planos de Aula/Treinamento/Gabriel e Sandro - Treinamento - Formação Complementar - Plano de Aula - 1o Semestre - 2025.docx",
+    "Planos de Aula/Treinamento/Sandro e Gabriel - Treinamento - Formação Complementar - Plano de Aula - 2o Semestre - 2025.docx"
+  ],
+  "canonical_conflicts_detail": {},
+  "canonical_auto_demoted": []
+}
