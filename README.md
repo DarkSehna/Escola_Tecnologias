@@ -1,0 +1,1 @@
+[![Update planos_index.json](https://github.com/DarkSehna/Escola_Tecnologias/actions/workflows/update_index.yml/badge.svg?branch=main)](https://github.com/DarkSehna/Escola_Tecnologias/actions/workflows/update_index.yml)
