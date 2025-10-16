@@ -1,0 +1,62 @@
+name: Update planos_index.json
+
+on:
+  push:
+    paths:
+      - "Planos de Estudos/**"
+      - "Planos de Aula/**"
+      - "Objetivos de Avaliação/**"
+      - "planos_index.json"
+      - "update_index_v2.py"
+      - ".github/workflows/update_index.yml"
+  pull_request:
+    paths:
+      - "Planos de Estudos/**"
+      - "Planos de Aula/**"
+      - "Objetivos de Avaliação/**"
+      - "planos_index.json"
+      - "update_index_v2.py"
+      - ".github/workflows/update_index.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-index-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit-and-update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+
+      - name: Audit and auto-update index
+        run: |
+          python update_index_v2.py --root . --index planos_index.json --report-dir artifacts \
+            --auto-map-smart --use-similarity-fallback \
+            --prefer-folder "Planos de Estudos" --auto-demote-canonical --write --allow-unresolved
+        continue-on-error: false
+
+      - name: Upload audit report
+        uses: actions/upload-artifact@v4
+        with:
+          name: planos-index-report
+          path: artifacts/
+
+      - name: Commit changes (if any)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(index): audit & auto-update planos_index.json"
+          file_pattern: planos_index.json artifacts/*
