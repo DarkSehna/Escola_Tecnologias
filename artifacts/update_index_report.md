@@ -8,7 +8,7 @@
 - Paths faltando (depois do remap): **0**
 - Conflitos de canonicidade: **0**
 - Canonicals desmarcados automaticamente: **0**
-- Arquivos encontrados no repo (scanner): **65**
+- Arquivos encontrados no repo (scanner): **66**
 
 ## Paths alterados
 - (nenhum)
