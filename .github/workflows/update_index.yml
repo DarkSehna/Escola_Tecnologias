@@ -7,7 +7,7 @@ on:
       - "Planos de Aula/**"
       - "Objetivos de Avaliação/**"
       - "planos_index.json"
-      - "update_index_v2.py"
+      - "update_index_v2_1.py"
       - ".github/workflows/update_index.yml"
   pull_request:
     paths:
@@ -15,7 +15,7 @@ on:
       - "Planos de Aula/**"
       - "Objetivos de Avaliação/**"
       - "planos_index.json"
-      - "update_index_v2.py"
+      - "update_index_v2_1.py"
       - ".github/workflows/update_index.yml"
   workflow_dispatch:
 
@@ -32,6 +32,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Git LFS pull (just in case)
+        run: |
+          git lfs install || true
+          git lfs fetch --all || true
+          git lfs checkout || true
+
+      - name: Show repo debug info
+        run: |
+          echo "PWD: $(pwd)"
+          echo "Branch:"
+          git rev-parse --abbrev-ref HEAD
+          echo "First 200 files:"
+          git ls-files | head -n 200
+          echo "Git-tracked file count:"
+          git ls-files | wc -l
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -42,18 +61,20 @@ jobs:
         run: |
           python -m pip install --upgrade pip
 
-      - name: Audit and auto-update index
+      - name: Audit and auto-update index (FS scan)
         run: |
-          python update_index_v2.py --root . --index planos_index.json --report-dir artifacts \
-            --auto-map-smart --use-similarity-fallback \
+          python update_index_v2_1.py --root . --index planos_index.json --report-dir artifacts \
+            --scan-fs-only --auto-map-smart --use-similarity-fallback \
             --prefer-folder "Planos de Estudos" --auto-demote-canonical --write --allow-unresolved
-        continue-on-error: false
 
-      - name: Upload audit report
+      - name: Upload audit report and file list
         uses: actions/upload-artifact@v4
         with:
           name: planos-index-report
-          path: artifacts/
+          path: |
+            artifacts/update_index_report.json
+            artifacts/update_index_report.md
+            artifacts/file_list.txt
 
       - name: Commit changes (if any)
         uses: stefanzweifel/git-auto-commit-action@v5
