@@ -41,6 +41,143 @@
             "6º-EM"
           ],
           "canonical": true
+        },
+        {
+          "path": ".github/workflows/update_index.yml",
+          "canonical": false,
+          "type": "yml"
+        },
+        {
+          "path": "LICENSE",
+          "canonical": false,
+          "type": ""
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 1° Semestre - Formação Complementar - 2° ano Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 1° Semestre - Formação Complementar 5° - Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 1° Semestre - Formação Complementar 6° - Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 1º Semestre - Formação Complementar -  2°e 3° ano  Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 1º Semestre - Formação Complementar - 3° ano Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 1º Semestre - Formação Complementar 4° ano - Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 2° Semestre - Formação Complementar -  2°e 3° ano Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 2° Semestre - Formação Complementar - 2° ano Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 2° Semestre - Formação Complementar 5° - Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 2° Semestre - Formação Complementar 6° - Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 2º Semestre - Formação Complementar - 3° Ano Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Aula/Robótica/Sandro - Plano de Aula - 2º Trimestre - Formação Complementar 4° ano - Robótica.docx",
+          "canonical": false,
+          "type": "docx",
+          "area": "Robótica"
+        },
+        {
+          "path": "Planos de Estudos/PLANO DE ESTUDOS GAMES - 2025.docx",
+          "canonical": false,
+          "type": "docx"
+        },
+        {
+          "path": "README.md",
+          "canonical": false,
+          "type": "md"
+        },
+        {
+          "path": "artifacts/file_list.txt",
+          "canonical": false,
+          "type": "txt"
+        },
+        {
+          "path": "artifacts/update_index_report.json",
+          "canonical": false,
+          "type": "json"
+        },
+        {
+          "path": "artifacts/update_index_report.md",
+          "canonical": false,
+          "type": "md"
+        },
+        {
+          "path": "planos_index.json",
+          "canonical": false,
+          "type": "json"
+        },
+        {
+          "path": "rename_table.example.json",
+          "canonical": false,
+          "type": "json"
+        },
+        {
+          "path": "update_index.py",
+          "canonical": false,
+          "type": "py"
+        },
+        {
+          "path": "update_index_v2.py",
+          "canonical": false,
+          "type": "py"
+        },
+        {
+          "path": "update_index_v2_1.py",
+          "canonical": false,
+          "type": "py"
+        },
+        {
+          "path": "update_index_v2_2.py",
+          "canonical": false,
+          "type": "py"
         }
       ]
     },
