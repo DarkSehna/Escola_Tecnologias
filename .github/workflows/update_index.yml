@@ -63,11 +63,7 @@ jobs:
 
       - name: Audit and auto-update index (FS scan)
         run: |
-          python update_index_v2_2.py --root . --index planos_index.json --report-dir artifacts \
-            --scan-fs-only --auto-map-smart --use-similarity-fallback \
-            --prefer-folder "Planos de Estudos" --auto-demote-canonical \
-            --auto-add-extras \        # <-- adicionada
-            --write --allow-unresolved
+          python update_index_v2_2.py --root . --index planos_index.json --report-dir artifacts --scan-fs-only --auto-map-smart --use-similarity-fallback --prefer-folder "Planos de Estudos" --auto-demote-canonical --auto-add-extras --write --allow-unresolved
 
       - name: Upload audit report and file list
         uses: actions/upload-artifact@v4
