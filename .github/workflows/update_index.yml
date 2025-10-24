@@ -7,7 +7,7 @@ on:
       - "Planos de Aula/**"
       - "Objetivos de Avaliação/**"
       - "planos_index.json"
-      - "update_index_v2_1.py"
+      - "update_index_v2_2.py"         # <-- trocado
       - ".github/workflows/update_index.yml"
   pull_request:
     paths:
@@ -15,7 +15,7 @@ on:
       - "Planos de Aula/**"
       - "Objetivos de Avaliação/**"
       - "planos_index.json"
-      - "update_index_v2_1.py"
+      - "update_index_v2_2.py"         # <-- trocado
       - ".github/workflows/update_index.yml"
   workflow_dispatch:
 
@@ -63,9 +63,11 @@ jobs:
 
       - name: Audit and auto-update index (FS scan)
         run: |
-          python update_index_v2_1.py --root . --index planos_index.json --report-dir artifacts \
+          python update_index_v2_2.py --root . --index planos_index.json --report-dir artifacts \
             --scan-fs-only --auto-map-smart --use-similarity-fallback \
-            --prefer-folder "Planos de Estudos" --auto-demote-canonical --write --allow-unresolved
+            --prefer-folder "Planos de Estudos" --auto-demote-canonical \
+            --auto-add-extras \        # <-- adicionada
+            --write --allow-unresolved
 
       - name: Upload audit report and file list
         uses: actions/upload-artifact@v4

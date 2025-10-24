@@ -1,12 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 from __future__ import annotations
-import argparse, os, sys, json, re, subprocess, unicodedata
+
+import argparse
+import json
+import os
+import re
+import subprocess
+import sys
+import unicodedata
 from collections import defaultdict
-from pathlib import Path
 from difflib import SequenceMatcher
 from pathlib import Path
 
+# ------------------------------
+# Utilidades de normalização
+# ------------------------------
 def strip_accents(s: str) -> str:
     return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn')
 
@@ -22,6 +31,14 @@ def normalize_basename(name: str) -> str:
     s = re.sub(r'\s+', ' ', s)
     return s
 
+def norm_path(p: str) -> str:
+    p = p.replace("\\", "/")
+    p = re.sub(r"/+", "/", p).strip()
+    return p
+
+# ------------------------------
+# Inferências simples
+# ------------------------------
 def infer_type_from_ext(p: str) -> str:
     ext = os.path.splitext(p)[1].lower()
     return {
@@ -59,11 +76,9 @@ def infer_area_from_path(p: str) -> str | None:
         pass
     return None
 
-def norm_path(p: str) -> str:
-    p = p.replace("\\", "/")
-    p = re.sub(r"/+", "/", p).strip()
-    return p
-
+# ------------------------------
+# IO do índice
+# ------------------------------
 def load_index(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as f:
         return json.load(f)
@@ -110,27 +125,15 @@ def flatten_docs(index: dict) -> list[dict]:
             })
     return docs
 
-def choose_canonical(candidates: list[dict], prefer_folder: str|None, repo_files: set[str]) -> int:
-    def score(d):
-        p = d["path"]
-        ok = 1 if p in repo_files else 0
-        pref = 1 if (prefer_folder and prefer_folder.lower() in p.lower()) else 0
-        return (ok, pref)
-    best_i, best_s = 0, (-1, -1)
-    for i, d in enumerate(candidates):
-        s = score(d)
-        if s > best_s:
-            best_i, best_s = i, s
-    return best_i
-
 def apply_rename_table(path: str, table: dict[str,str]) -> str:
     p = path
     for old, new in table.items():
         p = p.replace(old, new)
     return p
 
-
-
+# ------------------------------
+# Main
+# ------------------------------
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--root", default=".", help="Raiz do repositório")
@@ -152,32 +155,32 @@ def main():
     report_dir = (root / args.report_dir).resolve()
 
     idx = load_index(index_path)
-    docs = flatten_docs(idx)
+    docs_before = flatten_docs(idx)
     repo_files = list_repo_files(root, scan_fs_only=args.scan_fs_only)
 
-    # Diagnóstico
+    # Diagnóstico: salvar lista de arquivos do repo
     report_dir.mkdir(parents=True, exist_ok=True)
     with (report_dir / "file_list.txt").open("w", encoding="utf-8") as fl:
         for f in sorted(repo_files):
             fl.write(f + "\n")
 
     # Auditoria de paths
-    missing, present = [], []
-    for d in docs:
+    missing_before, present = [], []
+    for d in docs_before:
         if d["path"] in repo_files:
             present.append(d["path"])
         else:
-            missing.append(d["path"])
+            missing_before.append(d["path"])
 
-    changed_paths = []
+    changed_paths: list[dict] = []
 
     # Remap exato por basename
     by_name = defaultdict(list)
     for f in repo_files:
         by_name[os.path.basename(f).lower()].append(f)
 
-    remap_exact = {}
-    for d in docs:
+    remap_exact: dict[str,str] = {}
+    for d in docs_before:
         p = d["path"]
         if p in repo_files:
             continue
@@ -195,8 +198,8 @@ def main():
 
     # SMART remap
     if args.auto_map_smart:
-        docs2 = flatten_docs(idx)
-        still_missing_docs = [d for d in docs2 if d["path"] not in repo_files]
+        docs_tmp = flatten_docs(idx)
+        still_missing_docs = [d for d in docs_tmp if d["path"] not in repo_files]
 
         smart_index = defaultdict(list)
         for f in repo_files:
@@ -241,16 +244,16 @@ def main():
                 d["_doc"]["path"] = chosen
                 changed_paths.append({"method":"smart-name","from": old, "to": chosen})
 
-    # Recomputar missing
-    docs3 = flatten_docs(idx)
-    still_missing = [d["path"] for d in docs3 if d["path"] not in repo_files]
+    # Recomputar missing após remaps
+    docs_after_remap = flatten_docs(idx)
+    still_missing = [d["path"] for d in docs_after_remap if d["path"] not in repo_files]
 
     # ---------------------------------------------------------------
     # AUTO-ADD EXTRAS: arquivos do repo que não constam no index
     # ---------------------------------------------------------------
-    index_paths = set(d["path"] for d in docs3)
-    extras = sorted(f for f in repo_files if f not in index_paths)
-    auto_added = []
+    index_paths_after_remap = set(d["path"] for d in docs_after_remap)
+    extras = sorted(f for f in repo_files if f not in index_paths_after_remap)
+    auto_added: list[str] = []
     if args.auto_add_extras and extras:
         target_col = find_or_create_collection(idx)
         for f in extras:
@@ -262,15 +265,16 @@ def main():
             area = infer_area_from_path(f)
             if area:
                 doc["area"] = area
-            # year/semester/grades propositalmente não definidos (você vai organizar depois)
+            # year/semester/grades propositalmente não definidos
             target_col.setdefault("docs", []).append(doc)
             auto_added.append(f)
-        # Recalcula docs3 após inserir
-        docs3 = flatten_docs(idx)
+
+    # Após auto-add, consolidar docs finais
+    docs_final = flatten_docs(idx)
 
     # Conflitos de canonicidade
     groups = defaultdict(list)
-    for d in docs3:
+    for d in docs_final:
         key = (d["area"], d["grades"], d["year"], d["semester"], d["type"])
         if d["canonical"]:
             groups[key].append(d)
@@ -280,7 +284,6 @@ def main():
 
     if canonical_conflicts and args.auto_demote_canonical:
         for key, lst in canonical_conflicts.items():
-            keep_i = 0
             def score(di):
                 p = lst[di]["path"]
                 ok = 1 if p in repo_files else 0
@@ -291,66 +294,88 @@ def main():
                 s = score(i)
                 if s > bests:
                     best, bests = i, s
-            keep_i = best
             for i, d in enumerate(lst):
-                if i == keep_i:
+                if i == best:
                     continue
                 d["_doc"]["canonical"] = False
                 canonical_resolved.append({"key": list(key), "demoted_path": d["path"]})
 
-        # Recalcular
+        # Recalcular conflitos
         groups2 = defaultdict(list)
-        docs4 = flatten_docs(idx)
-        for d in docs4:
+        docs_final = flatten_docs(idx)
+        for d in docs_final:
             key = (d["area"], d["grades"], d["year"], d["semester"], d["type"])
             if d["canonical"]:
                 groups2[key].append(d)
         canonical_conflicts = {k:v for k,v in groups2.items() if len(v) > 1}
 
-    # Relatório
+    # ------------------------------
+    # Relatórios
+    # ------------------------------
+    summary = {
+        "total_index_docs_before": len(docs_before),
+        "total_index_docs_after": len(docs_final),
+        "paths_present_before": len([p for p in docs_before if p["path"] in repo_files]),
+        "paths_missing_before": len(missing_before),
+        "paths_auto_remapped": len([c for c in changed_paths if c["method"] in ("exact-name","smart-name","rename-table")]),
+        "paths_missing_after_remap": len(still_missing),
+        "auto_added": len(auto_added),
+        "canonical_conflicts": len(canonical_conflicts),
+        "canonical_auto_demoted": len(canonical_resolved),
+        "repo_files_count": len(repo_files),
+    }
+
     report = {
-        "summary": {
-            "total_docs": len(docs),
-            "paths_present": len([p for p in docs if p["path"] in repo_files]),
-            "paths_missing_before": len(missing),
-            "paths_auto_remapped": len([c for c in changed_paths if c["method"] in ("exact-name","smart-name","rename-table")]),
-            "paths_missing_after": len(still_missing),
-            "canonical_conflicts": len(canonical_conflicts),
-            "canonical_auto_demoted": len(canonical_resolved),
-            "repo_files_count": len(repo_files)
-        },
+        "summary": summary,
         "changed_paths": changed_paths,
-        "still_missing": still_missing,
+        "still_missing_after_remap": still_missing,
+        "auto_added": auto_added,
         "canonical_conflicts_detail": {
             str(k): [d["path"] for d in v] for k, v in canonical_conflicts.items()
         },
         "canonical_auto_demoted": canonical_resolved
     }
 
-    save_json(report, report_dir / "update_index_report.json")
+    # JSON
+    report_dir.mkdir(parents=True, exist_ok=True)
+    (report_dir / "update_index_report.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
 
-    md = ["# Relatório de Auditoria do planos_index.json",
-          "",
-          "## Resumo",
-          f"- Total de documentos no index: **{report['summary']['total_docs']}**",
-          f"- Paths válidos: **{report['summary']['paths_present']}**",
-          f"- Paths faltando (antes do remap): **{report['summary']['paths_missing_before']}**",
-          f"- Paths realocados automaticamente: **{report['summary']['paths_auto_remapped']}**",
-          f"- Paths faltando (depois do remap): **{report['summary']['paths_missing_after']}**",
-          f"- Conflitos de canonicidade: **{report['summary']['canonical_conflicts']}**",
-          f"- Canonicals desmarcados automaticamente: **{report['summary']['canonical_auto_demoted']}**",
-          f"- Arquivos encontrados no repo (scanner): **{report['summary']['repo_files_count']}**",
-          "",
-          "## Paths alterados"]
+    # Markdown
+    md = [
+        "# Relatório de Auditoria do planos_index.json",
+        "",
+        "## Resumo",
+        f"- Docs no index (antes): **{summary['total_index_docs_before']}**",
+        f"- Docs no index (depois): **{summary['total_index_docs_after']}**",
+        f"- Paths válidos (antes): **{summary['paths_present_before']}**",
+        f"- Paths faltando (antes): **{summary['paths_missing_before']}**",
+        f"- Paths realocados automaticamente: **{summary['paths_auto_remapped']}**",
+        f"- Paths faltando após remap: **{summary['paths_missing_after_remap']}**",
+        f"- Arquivos adicionados automaticamente: **{summary['auto_added']}**",
+        f"- Conflitos de canonicidade: **{summary['canonical_conflicts']}**",
+        f"- Canonicals desmarcados automaticamente: **{summary['canonical_auto_demoted']}**",
+        f"- Arquivos encontrados no repo (scanner): **{summary['repo_files_count']}**",
+        "",
+        "## Paths alterados",
+    ]
     if report["changed_paths"]:
         for ch in report["changed_paths"]:
             md.append(f"- ({ch['method']}) `{ch['from']}` → `{ch['to']}`")
     else:
         md.append("- (nenhum)")
 
-    md.append("\n## Paths ainda faltando")
+    md.append("\n## Paths ainda faltando após remap")
     if still_missing:
         for p in still_missing:
+            md.append(f"- `{p}`")
+    else:
+        md.append("- (nenhum)")
+
+    md.append("\n## Arquivos adicionados automaticamente")
+    if auto_added:
+        for p in auto_added:
             md.append(f"- `{p}`")
     else:
         md.append("- (nenhum)")
@@ -366,13 +391,15 @@ def main():
 
     (report_dir / "update_index_report.md").write_text("\n".join(md), encoding="utf-8")
 
+    # Persistir índice atualizado
     if args.write:
         save_json(idx, index_path)
 
-    if report["summary"]["paths_missing_after"] > 0 and not args.allow_unresolved:
+    # Exit codes “seguros” (não travam se allow-unresolved)
+    if summary["paths_missing_after_remap"] > 0 and not args.allow_unresolved:
         print("Há paths pendentes. Revise artifacts/update_index_report.md", file=sys.stderr)
         sys.exit(2)
-    if report["summary"]["canonical_conflicts"] > 0 and not args.allow_unresolved:
+    if summary["canonical_conflicts"] > 0 and not args.allow_unresolved:
         print("Há conflitos de canonicidade. Revise artifacts/update_index_report.md", file=sys.stderr)
         sys.exit(3)
 
