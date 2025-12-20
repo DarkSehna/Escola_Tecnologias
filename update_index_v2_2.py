@@ -13,6 +13,33 @@ from collections import defaultdict
 from difflib import SequenceMatcher
 from pathlib import Path
 
+# Pastas e extensões permitidas para entrar no index
+ALLOWED_DIRS = {
+    "Planos de Aula",
+    "Planos de Estudos",
+    "Objetivos de Avaliação",
+    "Planejamentos",
+    "Docs",
+    "Documentos",
+}
+ALLOWED_EXTS = {".docx", ".pdf", ".md", ".json"}
+
+# Pastas/arquivos que nunca entram
+EXCLUDE_PREFIXES = (
+    ".github/",
+    "artifacts/",
+)
+EXCLUDE_FILES = {
+    "planos_index.json",
+    "README.md",
+    "LICENSE",
+    "update_index.py",
+    "update_index_v2.py",
+    "update_index_v2_1.py",
+    "update_index_v2_2.py",
+}
+
+
 # ------------------------------
 # Utilidades de normalização
 # ------------------------------
