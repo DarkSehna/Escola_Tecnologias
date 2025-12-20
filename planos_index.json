@@ -178,6 +178,11 @@
           "path": "update_index_v2_2.py",
           "canonical": false,
           "type": "py"
+        },
+        {
+          "path": "Planos de Estudos/PLANO DE ESTUDOS ESCOLA DE TECNOLOGIAS - 2025.docx",
+          "canonical": false,
+          "type": "docx"
         }
       ]
     },

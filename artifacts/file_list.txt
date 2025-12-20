@@ -67,6 +67,7 @@ Planos de Estudos/Apoio/Robótica/5° ano/aula39_discotecagem_ef2_m1.pdf
 Planos de Estudos/Apoio/Robótica/5° ano/aula40_testagem_prototipos2_ef2_m1.pdf
 Planos de Estudos/Apoio/Robótica/5° ano/aula41_segunda_disputa_prototipos_ef2_m1.pdf
 Planos de Estudos/Apoio/Robótica/5° ano/aula42_feedbackIII_primeiros_passos_m1.pdf
+Planos de Estudos/PLANO DE ESTUDOS ESCOLA DE TECNOLOGIAS - 2025.docx
 Planos de Estudos/PLANO DE ESTUDOS GAMES - 2025.docx
 README.md
 artifacts/file_list.txt
